@@ -5,7 +5,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
     <script src="pathfinding-browser.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.0.10/p5.easycam.min.js" charset="utf-8"></script>
     <script src="client.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +26,15 @@
     <br>
     <button id="slope">Slope</button>
     <label id="slopeText">Sets Terrain color praportional to slope</label>
-    <br>
+    <br><br>
 <form action="/uploadfile" enctype="multipart/form-data" method="POST"> 
     <input type="file" name="myFile" />
     <input type="submit" value="Upload a file"/>
  </form>
     </div>
+    <p id="displayAzimuth"></p>
+    <br>
+    <p id="displayHeight"></p>
+    <br>
 </body>
 </html>

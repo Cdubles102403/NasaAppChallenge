@@ -2,11 +2,15 @@
 var cols, rows;
 var canvW, canvH;
 var camX, camY, camZ, camDX, camDY;
-var scl = 20;
+var scl = 30;
 
 var cam;
 
 var terrain = [];
+
+var displayNormal = true;
+var displayHeight = false;
+var displayslope = false;
 
 function setup() {
 
@@ -44,26 +48,18 @@ function setup() {
 
 function draw() {
   background(24);
-  fill(0, 204, 204);
+  fill(255, 255, 255);
   translate((-cols * scl) / 2, (-rows * scl) / 2);
   for (var y = 0; y < rows - 1; y++) {
     beginShape(TRIANGLE_STRIP);
     for (var x = 0; x < cols; x++) {
-      fill(0, 105 + terrain[y][x] * 150, 105 + terrain[y][x] * 150);
+      fill(50 + terrain[y][x] * 100, 50 + terrain[y][x] * 100, 50 + terrain[y][x] * 100);
       vertex(x * scl, y * scl,terrain[y][x] * 120);
       vertex(x * scl, (y + 1) * scl,terrain[y+1][x] * 120);
     }
     endShape();
   }
   rect(0, 0, cols * scl, rows * scl);
-
-  translate((cols * scl) / 2, -200);
-  fill(255, 0, 0);
-  sphere(20);
-
-  translate((cols * scl) / 2 + 200, (rows * scl) / 2 + 200);
-  fill(0, 0, 255);
-  sphere(20);
 
   camX += camDX;
   camY += camDY;
@@ -74,6 +70,8 @@ function draw() {
   camDY /= 4;
 
   setCamera(cam);
+
+  let azimuth = random(90);
 }
 
 $(function() {
@@ -89,6 +87,24 @@ $(function() {
       processData: false,
       contentType: false,
     })
+  })
+})
+
+$(function() {
+  $("#normal").click(function() {
+    displayNormal = true;
+    displayHeight = false;
+    displaySlope = false;
+  })
+  $("#height").click(function() {
+    displayNormal = false;
+    displayHeight = true;
+    displaySlope = false;
+  })
+  $("#slope").click(function() {
+    displayNormal = false;
+    displayHeight = false;
+    displaySlope = true;
   })
 })
 
@@ -110,7 +126,7 @@ function mouseWheel(event) {
   if (camZ < 150) {
     camZ = 150;
   }
-  if (camZ > 2000) {
-    camZ = 2000;
+  if (camZ > 1600) {
+    camZ = 1600;
   }
 }
