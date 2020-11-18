@@ -20,6 +20,10 @@ nav a:hover {
 #Canvas {
     margin-top: 32px;
     margin-bottom: 32px;
+    padding: 0px;
+    max-width: 81.9%;
+    margin-left: 9%;
+    border: solid 1px;
 }
 
 #sendFile {
@@ -31,7 +35,7 @@ nav a:hover {
 }
 
 #normalText {
-    margin-right: 125px;
+    margin-right: 73px;
 }
 
 #heightText {
@@ -39,12 +43,16 @@ nav a:hover {
 }
 
 #slopeText {
-    margin-right: 47px;
+    margin-right: 46px;
 }
 
 button {
-    background-color:whitesmoke;
-    width: 58px;
+    background-color:#ddd;
+    width: 60px;
+}
+
+button:hover {
+    background-color:#aaa;
 }
 
 
